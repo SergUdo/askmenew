@@ -16,10 +16,16 @@ class UserTest < ActiveSupport::TestCase
     assert_not duplicate_user.valid?
   end
 
-  test "name should be saved as lower-case" do
-    mixed_case_name = "FootBooList"
-    @user.name = mixed_case_name.downcase
+  test "username should be unique" do
+    duplicate_user = @user.dup
+    duplicate_user.username = @user.username.upcase
     @user.save
-    assert_equal mixed_case_name.downcase, @user.name
+    assert_not duplicate_user.valid?
+  end
+
+  test "name should be saved as lower-case" do
+    mixed_case_name = @user.name.downcase
+    @user.save
+    assert_equal mixed_case_name, @user.name.downcase
   end
 end
