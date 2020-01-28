@@ -4,7 +4,7 @@ class CreateQuestions < ActiveRecord::Migration[6.0]
       t.string :text
       t.string :answer
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
