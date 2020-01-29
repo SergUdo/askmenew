@@ -50,7 +50,7 @@
       <% end %>
 
       <h3 class="question-count">
-        <%= "Пользователю @#{@user.username} было задано: #{@questions.count} #{type_question}."  %>
+        <%= "Пользователю @#{@user.username} было задано: #{type_question(@questions.size)}." %>
       </h3>
     </div>
   </div>
