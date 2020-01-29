@@ -12,8 +12,7 @@ Rails.application.routes.draw do
   # Ресурс вопросов (кроме экшенов :show, :new, :index)
   resources :questions, except: [:show, :new, :index]
 
-
-  get 'sign_up' => 'users#new'
-  get 'log_out' => 'sessions#destroy'
-  get 'log_in' => 'sessions#new'
+  get 'sign_up', to: 'users#new'
+  get 'log_out', to: 'sessions#destroy'
+  get 'log_in', to: 'sessions#new'
 end
