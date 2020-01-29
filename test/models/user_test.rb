@@ -1,4 +1,5 @@
 require 'test_helper'
+require "minitest/autorun"
 
 class UserTest < ActiveSupport::TestCase
 

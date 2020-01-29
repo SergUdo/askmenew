@@ -9,11 +9,13 @@ gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'jquery-rails'
+gem 'rubocop', require: false
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   gem 'byebug'
+  gem 'minitest', '~> 5.8', '>= 5.8.4'
 end
 
 group :development do
