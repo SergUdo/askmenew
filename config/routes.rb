@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
-  resources :users, except: [:destroy]
+  resources :users, only: [:create, :show, :edit, :update, :destroy]
 
   resources :sessions, only: [:new, :create, :destroy]
 
@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get 'sign_up', to: 'users#new'
   get 'log_out', to: 'sessions#destroy'
   get 'log_in', to: 'sessions#new'
+  delete 'delete', to: 'users#destroy'
 end
