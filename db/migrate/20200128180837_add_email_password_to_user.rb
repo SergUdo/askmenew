@@ -7,6 +7,5 @@ class AddEmailPasswordToUser < ActiveRecord::Migration[6.0]
     add_column :users, :avatar_url, :string
   end
 
-  add_column :users, :avatar_url, :string
   add_index :users, :email, unique: true
 end
