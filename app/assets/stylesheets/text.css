@@ -40,6 +40,10 @@ a {
   padding-bottom: 10px;
 }
 
+.column-1-3 {
+  color: black;
+}
+
 .text-center {
   text-align: center;
 }
