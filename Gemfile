@@ -13,12 +13,12 @@ gem 'uglifier'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
-  gem 'sqlite3', '~> 1.4'
   gem 'byebug'
   gem 'minitest', '~> 5.8', '>= 5.8.4'
 end
 
 group :development do
+  gem 'sqlite3', '~> 1.4'
   gem 'listen'
   gem 'web-console', '~> 4.0.1'
 end
