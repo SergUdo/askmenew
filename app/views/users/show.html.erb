@@ -63,7 +63,7 @@
       <% end %>
 
       <h3 class="question-count">
-        <%= "Пользователю @#{@user.username} было задано: #{@questions.count} #{type_question}."  %>
+        <%= "Всего пользователю @#{@user.username} задано #{inclination(@questions.size, 'вопрос', 'вопроса', 'вопросов')}." %>
     </h3>
     </div>
   </div>   
