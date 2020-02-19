@@ -11,6 +11,7 @@ gem 'rubocop'
 gem 'uglifier'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'recaptcha', require: 'recaptcha/rails'
 
 group :development, :test do
   gem 'byebug'
