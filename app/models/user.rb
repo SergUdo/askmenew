@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_USERNAME = /\A[a-z0-9_]{1,40}\z/
 
+  scope :sorted, -> { order(id: :desc) }
   # Виртуальное поле, которое не сохраняется в базу. Из него перед сохранением
   # читается пароль, и сохраняется в базу уже зашифрованная версия пароля в
   # реальные поля password_salt и password_hash.

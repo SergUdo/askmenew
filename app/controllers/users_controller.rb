@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @users = User.sorted
   end
 
   # Действие new будет отзываться по адресу /users/new
