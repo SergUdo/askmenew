@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @users = User.sorted
+    # @hashtags = Hashtag.sorted
   end
 
   # Действие new будет отзываться по адресу /users/new
@@ -37,7 +38,8 @@ class UsersController < ApplicationController
     if @user.save
       # Если удалось, отправляем пользователя на главную с сообщение, что
       # пользователь создан.
-      redirect_to root_url, notice: 'Пользователь успешно зарегестрирован!'
+      redirect_to root_url, notice: 'Вы успешно зарегестрированны!'
+      session[:user_id] = @user.id
     else
       # Если не удалось по какой-то причине сохранить пользователя, то рисуем
       # (обратите внимание, это не редирект), страницу new с формой
