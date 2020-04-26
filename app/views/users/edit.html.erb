@@ -49,8 +49,8 @@
       </div>
       <div class="form-action buffer-top">
         <div class='button button-dark button-small'>
-          <%= link_to 'Удалить', @user, method: :delete, 
-            data: { confirm: "You sure?" } %>
+          <%= link_to 'Удалить', user_path(@user), method: :delete, 
+            data: { confirm: "Вы точно хотите удалить аккаунт?" } %>
         </div>
       </div>
     <% end %>

@@ -97,12 +97,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    session[:user_id] = nil
     @user = User.find(params[:id])
-    if @user.present?
-      @user.destroy
-      flash[:success] = "Пользователь удален"
-      redirect_to root_url
-    end
+    @user.destroy
+    redirect_to root_url, notice: "Ваш аккаунт был удален."
   end
 
   private
