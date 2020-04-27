@@ -19,7 +19,6 @@ class ApplicationController < ActionController::Base
   end
 
   def reject_user
-    #redirect_to root_path, alert: 'Вам сюда низя!'
-    redirect_to(root_url) if  @current_user
+    redirect_to root_path, alert: 'Вам сюда низя!'
   end
 end
