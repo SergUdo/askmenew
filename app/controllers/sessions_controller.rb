@@ -1,16 +1,14 @@
 class SessionsController < ApplicationController
-  # Пустой экшен, только показывает свой шаблон
+
   def new
   end
 
-  # Создает в объекте session новый факт залогиненности пользователя, если он
-  # правильно сообщил мэйл/пароль
   def create
     @user = User.authenticate(params[:email], params[:password])
 
     if @user.present?
       session[:user_id] = @user.id
-      redirect_to root_url, notice: 'вы успешно залогинились'
+      redirect_to user_path(@user), notice: 'вы успешно залогинились'
     else
       flash.now.alert = 'Неправильный мэйл или пароль'
       render :new
@@ -19,6 +17,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, notice: 'Вы разлогинились! Приходите еще!'
+    redirect_to user_path(@user), notice: 'Вы разлогинились! Приходите еще!'
   end
 end
