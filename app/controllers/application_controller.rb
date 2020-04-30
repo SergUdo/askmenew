@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
   #
   # http://guides.rubyonrails.org/security.html#cross-site-request-forgery-csrf
   protect_from_forgery with: :exception
-
   helper_method :current_user
 
   private

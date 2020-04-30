@@ -1,0 +1,94 @@
+ru:
+  activerecord:
+    models:
+      user: 'Пользователь'
+      event: 'Событие'
+
+    attributes:
+      user:
+        email: 'Email'
+        name: 'Имя'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+      event:
+        title: 'Название'
+        address: 'Место проведения'
+        datetime: 'Дата и время'
+        description: 'Описание'
+
+  controllers:
+    events:
+      created: 'Вы создали новое мероприятие'
+      updated: 'Вы обновили мероприятие'
+      destroyed: 'Вы удалили мероприятие :('
+    users:
+      updated: 'Вы обновили свой профиль'
+
+  app:
+    name: 'Шашлыки'
+    company: 'Проект Шашлыки'
+
+  users:
+    show:
+      edit: 'Редактировать профиль'
+      header: 'Организовал:'
+      text: 'Пользователь пока не организовал ни одного события'
+    edit:
+      header: 'Редактирование профиля'
+      update_password: 'Сменить пароль'
+    form:
+      submit: 'Сохранить'
+      back: 'вернуться'
+  events:
+    form:
+      submit: 'Сохранить'
+      back: 'вернуться'
+    edit:
+      header: 'Редактирование события'
+    index:
+      header: 'События'
+      create: 'Создать событие'
+    new:
+      header: 'Новое событие'
+    show:
+      edit: 'Изменить'
+
+  errors:
+    one: 'У Вас %{count} ошибка в форме'
+    few: 'У Вас %{count} ошибки в форме'
+    many: 'У Вас %{count} ошибок в форме'
+
+  devise:
+    passwords:
+      edit:
+        header: 'Изменить пароль'
+        submit: 'Изменить пароль'
+        pas_length_one: 'Не менее'
+        pas_length_two: 'символов'
+      new:
+        header: 'Забыли пароль?'
+        reset_password: 'Сбросить пароль'
+    registrations:
+      edit:
+        header: 'Сменить пароль'
+        currently: 'В настоящее время ожидает подтверждения для:'
+        pas_length_one: 'Не менее'
+        pas_length_two: 'символов'
+        field_none: 'оставте пустым, если не хотите его менять'
+        pas_confirm: 'текущий пароль для подтверждения изменений'
+        update: 'Обновить'
+        delete_account: 'Удалить аккаунт'
+        confirm: 'Вы уверены?'
+        back: 'назад'
+      new:
+        header: 'Регистрация'
+        sign_up: 'Зарегистрироваться'
+    sessions:
+      new:
+        header: 'Войти на сайт'
+        sign_in: 'Войти'
+    shared:
+      links:
+        sign_in: 'Войти'
+        registartion: 'Регистрация'
+        forgot_password: 'Забыли пароль?'

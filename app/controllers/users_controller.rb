@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 
   def new
     redirect_to user_path(@user), alert: 'Вы уже залогинены' if current_user.present?
-
     @user = User.new
   end
 
@@ -40,7 +39,6 @@ class UsersController < ApplicationController
 
   def show
     @questions = @user.questions.order(created_at: :desc)
-
     @new_question = @user.questions.build
     @questions_count = @questions.count
     @answers_count = @questions.where.not(answer: nil).count
@@ -50,7 +48,7 @@ class UsersController < ApplicationController
   def destroy
     session[:user_id] = nil
     @user.destroy
-    redirect_to root_path, notice: "Ваш аккаунт был удален."
+    redirect_to root_path, notice: "Пользователь @#{@user.username} успешно удален."
   end
 
   private
