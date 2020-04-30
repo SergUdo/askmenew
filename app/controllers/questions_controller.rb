@@ -8,7 +8,6 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-
     @question.author = current_user
 
     if check_captcha(@question) && @question.save
@@ -28,9 +27,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     user = @question.user
-
     @question.destroy
-
     redirect_to user_path(user), notice: 'Вопрос удален :('
   end
 
