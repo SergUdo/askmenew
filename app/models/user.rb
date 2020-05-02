@@ -1,29 +1,24 @@
 require 'openssl'
 
-# Модель пользователя.
-#
-# Каждый экземпляр этого класса — загруженная из БД инфа о конкретном юзере.
 class User < ActiveRecord::Base
-  # Параметры работы для модуля шифрования паролей
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest::SHA256.new
   VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_USERNAME = /\A[a-z0-9_]{1,40}\z/
 
-  scope :sorted, -> { order(id: :desc) }
-
   attr_accessor :password
 
   has_many :questions, dependent: :destroy
-
   has_many :authored_questions, class_name: 'Question', foreign_key: 'author_id', dependent: :nullify
   before_create :downcase_name
+  before_validation :normalize_name
   validates :username,  presence: true, format: { with: VALID_USERNAME }
   validates :email, :username, uniqueness: true
   validates :email, presence: true, format: { with: VALID_EMAIL }
   validates :password, presence: true, on: :create
   validates_confirmation_of :password
   before_save :encrypt_password
+  scope :sorted, -> { order(id: :desc) }
 
   def encrypt_password
     if password.present?
@@ -71,5 +66,9 @@ class User < ActiveRecord::Base
   #Добавлен метод для перевода букв имени в нижний регистр
   def downcase_name
     self.name = name.downcase
+  end
+
+  def normalize_name
+    self.username = username.downcase
   end
 end
