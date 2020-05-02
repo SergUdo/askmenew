@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   attr_accessor :password
 
   has_many :questions, dependent: :destroy
+
+  has_many :authored_questions, class_name: 'Question', foreign_key: 'author_id', dependent: :nullify
   before_create :downcase_name
   validates :username,  presence: true, format: { with: VALID_USERNAME }
   validates :email, :username, uniqueness: true

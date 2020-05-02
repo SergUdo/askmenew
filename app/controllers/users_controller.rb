@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @users = User.sorted
-    # @hashtags = Hashtag.sorted
   end
 
   def new
@@ -46,8 +45,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    binding.irb
     @user.destroy
+    session[:user_id] = nil
     redirect_to root_path, notice: "Ваш аккаунт был удален."
   end
 
