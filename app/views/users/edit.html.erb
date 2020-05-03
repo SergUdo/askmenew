@@ -49,7 +49,8 @@
       </div>
       <% end %>
 
-        <%= link_to 'Удалить', root_url, method: :delete, class: 'button button-red button-small', data: { confirm: "Вы точно хотите удалить аккаунт?" } if current_user == @user %>
+      <div class="buffer-both">
+        <%= link_to 'Удалить', user_path(@user), method: :delete, data: { confirm: "Вы точно хотите удалить аккаунт?" } if current_user == @user %>
       </div>
   </div>
 </div>
