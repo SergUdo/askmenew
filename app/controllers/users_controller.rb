@@ -44,7 +44,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    binding.irb
     @user.destroy
     session[:user_id] = nil
     redirect_to root_path, notice: "Ваш аккаунт был удален."
