@@ -17,8 +17,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to user_path(@user), notice: 'Вы успешно зарегестрированны!'
       session[:user_id] = @user.id
+      redirect_to user_path(@user), notice: 'Вы успешно зарегестрированны!'
     else
       render 'new'
     end
